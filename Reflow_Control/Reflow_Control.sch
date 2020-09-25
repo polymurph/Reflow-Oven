@@ -1,4 +1,64 @@
-EESchema Schematic File Version 2
-EELAYER 25 0
+EESchema Schematic File Version 4
+EELAYER 26 0
 EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L my_lib:NUCLEO-F042K6 U?
+U 1 1 5F6E1C9D
+P 1800 6650
+F 0 "U?" H 1800 7615 50  0000 C CNN
+F 1 "NUCLEO-F042K6" H 1800 7524 50  0000 C CNN
+F 2 "Module:Arduino_Nano" H 1750 6650 50  0001 C CNN
+F 3 "" H 1750 6650 50  0001 C CNN
+F 4 "ST" H 1800 6650 50  0001 C CNN "Man"
+F 5 " NUCLEO-F042K6 " H 1800 6650 50  0001 C CNN "Man no"
+F 6 "Digikey" H 1800 6650 50  0001 C CNN "Dist"
+F 7 " 497-15980-ND " H 1800 6650 50  0001 C CNN "Dist no"
+	1    1800 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L my_lib:PCA9555 U?
+U 1 1 5F6E1EB3
+P 6500 5250
+F 0 "U?" H 6500 6015 50  0000 C CNN
+F 1 "PCA9555" H 6500 5924 50  0000 C CNN
+F 2 "" H 6500 5250 50  0001 C CNN
+F 3 "" H 6500 5250 50  0001 C CNN
+	1    6500 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L my_lib:SSD1306_128x64 U?
+U 1 1 5F6E1F48
+P 9450 2850
+F 0 "U?" H 9927 2921 50  0000 L CNN
+F 1 "SSD1306_128x64" H 9927 2830 50  0000 L CNN
+F 2 "" H 9450 2850 50  0001 C CNN
+F 3 "" H 9450 2850 50  0001 C CNN
+	1    9450 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Rotary_Encoder_Switch SW?
+U 1 1 5F6E216F
+P 8200 4000
+F 0 "SW?" H 8200 4367 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 8200 4276 50  0000 C CNN
+F 2 "" H 8050 4160 50  0001 C CNN
+F 3 "~" H 8200 4260 50  0001 C CNN
+	1    8200 4000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
