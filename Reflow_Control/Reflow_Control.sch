@@ -88,12 +88,12 @@ $EndComp
 $Comp
 L Reflow_Control-rescue:MAX31865_Breakout-my_lib U?
 U 1 1 5F6E1D4F
-P 3750 1850
-F 0 "U?" H 3977 1946 50  0000 L CNN
-F 1 "MAX31865_Breakout" H 3977 1855 50  0000 L CNN
-F 2 "MY_FOOTPRINT:MAX31865_Breakout" H 3750 1850 50  0001 C CNN
-F 3 "" H 3750 1850 50  0001 C CNN
-	1    3750 1850
+P 7600 2600
+F 0 "U?" H 7827 2696 50  0000 L CNN
+F 1 "MAX31865_Breakout" H 7827 2605 50  0000 L CNN
+F 2 "MY_FOOTPRINT:MAX31865_Breakout" H 7600 2600 50  0001 C CNN
+F 3 "" H 7600 2600 50  0001 C CNN
+	1    7600 2600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1213,4 +1213,90 @@ Wire Wire Line
 	7400 800  7400 850 
 Wire Wire Line
 	7400 850  8000 850 
+$Comp
+L power:GND #PWR?
+U 1 1 5FB410E8
+P 7550 3200
+F 0 "#PWR?" H 7550 2950 50  0001 C CNN
+F 1 "GND" H 7555 3027 50  0000 C CNN
+F 2 "" H 7550 3200 50  0001 C CNN
+F 3 "" H 7550 3200 50  0001 C CNN
+	1    7550 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 3200 7550 3100
+Text GLabel 2350 4200 0    50   Output ~ 0
+SPI_MOSI
+Text GLabel 2350 4300 0    50   Input ~ 0
+SPI_MISO
+Text GLabel 3450 4300 2    50   Output ~ 0
+SPI_SCK
+Wire Wire Line
+	3450 4300 3350 4300
+Wire Wire Line
+	2350 4200 2450 4200
+Wire Wire Line
+	2350 4300 2450 4300
+Text GLabel 7100 2550 0    50   Input ~ 0
+SPI_MOSI
+Text GLabel 7100 2450 0    50   Output ~ 0
+SPI_MISO
+Text GLabel 7100 2350 0    50   Input ~ 0
+SPI_SCK
+Text GLabel 2350 4100 0    50   Output ~ 0
+SPI_CS
+Wire Wire Line
+	2350 4100 2450 4100
+Text GLabel 7100 2650 0    50   Input ~ 0
+SPI_CS
+Wire Wire Line
+	7100 2650 7200 2650
+Wire Wire Line
+	7100 2350 7200 2350
+Wire Wire Line
+	7200 2450 7100 2450
+Text GLabel 2350 4000 0    50   Input ~ 0
+MAX31865_RDY
+Wire Wire Line
+	7100 2550 7200 2550
+Wire Wire Line
+	2350 4000 2450 4000
+Text GLabel 6500 2850 0    50   Output ~ 0
+MAX31865_RDY
+Wire Wire Line
+	6500 2850 6600 2850
+$Comp
+L Device:R R?
+U 1 1 5FB9E607
+P 6600 2100
+F 0 "R?" H 6670 2146 50  0000 L CNN
+F 1 "4k7" H 6670 2055 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6530 2100 50  0001 C CNN
+F 3 "~" H 6600 2100 50  0001 C CNN
+F 4 "Rhom" H 6600 2100 50  0001 C CNN "Man"
+F 5 "KTR18EZPF4701" H 6600 2100 50  0001 C CNN "Man no"
+F 6 "Digikey" H 6600 2100 50  0001 C CNN "Dist"
+F 7 "RHM4.7KAICT-ND" H 6600 2100 50  0001 C CNN "Dist no"
+	1    6600 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 2250 6600 2850
+Connection ~ 6600 2850
+Wire Wire Line
+	6600 2850 7200 2850
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FBAEDD7
+P 6600 1900
+F 0 "#PWR?" H 6600 1750 50  0001 C CNN
+F 1 "+3.3V" H 6615 2073 50  0000 C CNN
+F 2 "" H 6600 1900 50  0001 C CNN
+F 3 "" H 6600 1900 50  0001 C CNN
+	1    6600 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 1900 6600 1950
 $EndSCHEMATC
