@@ -863,7 +863,7 @@ U 1 1 5FA0F7BF
 P 10250 1000
 F 0 "JP?" H 10250 1224 50  0000 C CNN
 F 1 "Jumper_3_Open" H 10250 1133 50  0000 C CNN
-F 2 "" H 10250 1000 50  0001 C CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm_NumberLabels" H 10250 1000 50  0001 C CNN
 F 3 "~" H 10250 1000 50  0001 C CNN
 	1    10250 1000
 	1    0    0    -1  
@@ -1311,4 +1311,25 @@ Wire Wire Line
 	3950 4500 4200 4500
 Wire Wire Line
 	4200 4500 4200 4300
+Text GLabel 4000 3800 2    50   Input ~ 0
+MAX31865_RDY
+Wire Wire Line
+	4000 3800 3350 3800
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FBD7B03
+P 7500 1850
+F 0 "#PWR?" H 7500 1700 50  0001 C CNN
+F 1 "+3.3V" H 7515 2023 50  0000 C CNN
+F 2 "" H 7500 1850 50  0001 C CNN
+F 3 "" H 7500 1850 50  0001 C CNN
+	1    7500 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 1850 7500 2000
+Text GLabel 4450 3100 2    50   BiDi ~ 0
+I2C_SDA
+Text GLabel 4450 3200 2    50   Output ~ 0
+I2C_SCL
 $EndSCHEMATC
