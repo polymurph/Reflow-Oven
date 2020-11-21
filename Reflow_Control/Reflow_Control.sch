@@ -114,16 +114,16 @@ $EndComp
 $Comp
 L Device:R R?
 U 1 1 5F9458E6
-P 9450 3150
-F 0 "R?" H 9520 3196 50  0000 L CNN
-F 1 "4k7" H 9520 3105 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 9380 3150 50  0001 C CNN
-F 3 "~" H 9450 3150 50  0001 C CNN
-F 4 "Rhom" H 9450 3150 50  0001 C CNN "Man"
-F 5 "KTR18EZPF4701" H 9450 3150 50  0001 C CNN "Man no"
-F 6 "Digikey" H 9450 3150 50  0001 C CNN "Dist"
-F 7 "RHM4.7KAICT-ND" H 9450 3150 50  0001 C CNN "Dist no"
-	1    9450 3150
+P 9400 3150
+F 0 "R?" H 9470 3196 50  0000 L CNN
+F 1 "4k7" H 9470 3105 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 9330 3150 50  0001 C CNN
+F 3 "~" H 9400 3150 50  0001 C CNN
+F 4 "Rhom" H 9400 3150 50  0001 C CNN "Man"
+F 5 "KTR18EZPF4701" H 9400 3150 50  0001 C CNN "Man no"
+F 6 "Digikey" H 9400 3150 50  0001 C CNN "Dist"
+F 7 "RHM4.7KAICT-ND" H 9400 3150 50  0001 C CNN "Dist no"
+	1    9400 3150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -222,16 +222,16 @@ $EndComp
 $Comp
 L Device:C C?
 U 1 1 5F947CDD
-P 9650 4100
-F 0 "C?" H 9765 4146 50  0000 L CNN
-F 1 "100n" H 9765 4055 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9688 3950 50  0001 C CNN
-F 3 "~" H 9650 4100 50  0001 C CNN
-F 4 "Samsung" H 9650 4100 50  0001 C CNN "Man"
-F 5 "CL21B104KACNNNC" H 9650 4100 50  0001 C CNN "Man nno"
-F 6 "Digikey" H 9650 4100 50  0001 C CNN "Dist"
-F 7 "1276-1099-1-ND" H 9650 4100 50  0001 C CNN "Dist no"
-	1    9650 4100
+P 9700 4100
+F 0 "C?" H 9815 4146 50  0000 L CNN
+F 1 "100n" H 9815 4055 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9738 3950 50  0001 C CNN
+F 3 "~" H 9700 4100 50  0001 C CNN
+F 4 "Samsung" H 9700 4100 50  0001 C CNN "Man"
+F 5 "CL21B104KACNNNC" H 9700 4100 50  0001 C CNN "Man nno"
+F 6 "Digikey" H 9700 4100 50  0001 C CNN "Dist"
+F 7 "1276-1099-1-ND" H 9700 4100 50  0001 C CNN "Dist no"
+	1    9700 4100
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -691,9 +691,9 @@ Wire Wire Line
 Wire Wire Line
 	9950 3800 10000 3800
 Wire Wire Line
-	10000 3900 9650 3900
+	10000 3900 9700 3900
 Wire Wire Line
-	9650 3900 9650 3950
+	9700 3900 9700 3950
 Wire Wire Line
 	10000 3700 9850 3700
 Wire Wire Line
@@ -701,25 +701,25 @@ Wire Wire Line
 Wire Wire Line
 	9250 4250 9250 4350
 Wire Wire Line
-	9250 4350 9650 4350
+	9250 4350 9700 4350
 Connection ~ 9950 4350
 Wire Wire Line
 	9950 4350 9950 3800
 Wire Wire Line
-	9650 4250 9650 4350
-Connection ~ 9650 4350
+	9700 4250 9700 4350
+Connection ~ 9700 4350
 Wire Wire Line
-	9650 4350 9950 4350
+	9700 4350 9950 4350
 Text GLabel 9250 3600 1    50   Output ~ 0
-ENC_A
-Text GLabel 9650 3600 1    50   Output ~ 0
-ENC_B
+INT_ENC_A
+Text GLabel 9700 3600 1    50   Output ~ 0
+INT_ENC_B
 Wire Wire Line
 	9250 3600 9250 3700
 Connection ~ 9250 3700
 Wire Wire Line
-	9650 3600 9650 3900
-Connection ~ 9650 3900
+	9700 3600 9700 3900
+Connection ~ 9700 3900
 Text GLabel 10800 3600 1    50   Output ~ 0
 ENC_Switch
 $Comp
@@ -800,24 +800,24 @@ F 7 "RHM4.7KAICT-ND" H 9850 3150 50  0001 C CNN "Dist no"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9450 3300 9450 3700
-Connection ~ 9450 3700
+	9400 3300 9400 3700
+Connection ~ 9400 3700
 Wire Wire Line
-	9450 3700 9250 3700
+	9400 3700 9250 3700
 Wire Wire Line
 	9850 3300 9850 3700
 Connection ~ 9850 3700
 Wire Wire Line
-	9850 3700 9450 3700
+	9850 3700 9400 3700
 $Comp
 L power:+3.3V #PWR?
 U 1 1 5F9E4634
-P 9450 2900
-F 0 "#PWR?" H 9450 2750 50  0001 C CNN
-F 1 "+3.3V" H 9465 3073 50  0000 C CNN
-F 2 "" H 9450 2900 50  0001 C CNN
-F 3 "" H 9450 2900 50  0001 C CNN
-	1    9450 2900
+P 9400 2900
+F 0 "#PWR?" H 9400 2750 50  0001 C CNN
+F 1 "+3.3V" H 9415 3073 50  0000 C CNN
+F 2 "" H 9400 2900 50  0001 C CNN
+F 3 "" H 9400 2900 50  0001 C CNN
+	1    9400 2900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -834,7 +834,7 @@ $EndComp
 Wire Wire Line
 	9850 2900 9850 3000
 Wire Wire Line
-	9450 3000 9450 2900
+	9400 3000 9400 2900
 $Comp
 L Jumper:Jumper_3_Open JP?
 U 1 1 5FA0F63C
@@ -1012,7 +1012,7 @@ Wire Wire Line
 	5600 6250 5050 6250
 Connection ~ 5050 6250
 Text GLabel 3950 6250 0    50   Output ~ 0
-INT_IO_EXP
+INT_PCA9555
 Wire Wire Line
 	4050 6250 4000 6250
 $Comp
@@ -1049,17 +1049,17 @@ $EndComp
 Wire Wire Line
 	4000 5650 4000 5800
 Text GLabel 5050 6450 2    50   Input ~ 0
-I2C_SCL
+I2C1_SCL
 Text GLabel 5050 6350 2    50   BiDi ~ 0
-I2C_SDA
+I2C1_SDA
 Wire Wire Line
 	5050 6450 4950 6450
 Wire Wire Line
 	5050 6350 4950 6350
 Text GLabel 1500 3500 0    50   BiDi ~ 0
-I2C_SDA
+I2C1_SDA
 Text GLabel 1500 3600 0    50   Output ~ 0
-I2C_SCL
+I2C1_SCL
 $Comp
 L Device:R R?
 U 1 1 5FA8D2EF
@@ -1172,9 +1172,9 @@ Wire Wire Line
 Wire Wire Line
 	3550 3000 3550 3050
 Text GLabel 7900 1050 0    50   BiDi ~ 0
-I2C_SDA
+I2C1_SDA
 Text GLabel 7900 1150 0    50   Input ~ 0
-I2C_SCL
+I2C1_SCL
 Wire Wire Line
 	7900 1050 8000 1050
 Wire Wire Line
@@ -1241,25 +1241,21 @@ SPI_MISO
 Text GLabel 7100 2350 0    50   Input ~ 0
 SPI_SCK
 Text GLabel 2350 4100 0    50   Output ~ 0
-SPI_CS
+SPI_CS_MAX31865
 Wire Wire Line
 	2350 4100 2450 4100
 Text GLabel 7100 2650 0    50   Input ~ 0
-SPI_CS
+SPI_CS_MAX31865
 Wire Wire Line
 	7100 2650 7200 2650
 Wire Wire Line
 	7100 2350 7200 2350
 Wire Wire Line
 	7200 2450 7100 2450
-Text GLabel 2350 4000 0    50   Input ~ 0
-MAX31865_RDY
 Wire Wire Line
 	7100 2550 7200 2550
-Wire Wire Line
-	2350 4000 2450 4000
 Text GLabel 6500 2850 0    50   Output ~ 0
-MAX31865_RDY
+INT_MAX31865_RDY
 Wire Wire Line
 	6500 2850 6600 2850
 $Comp
@@ -1296,9 +1292,9 @@ $EndComp
 Wire Wire Line
 	6600 1900 6600 1950
 Text GLabel 4000 4000 2    50   Input ~ 0
-ENC_A
+INT_ENC_A
 Text GLabel 4000 3900 2    50   Input ~ 0
-ENC_B
+INT_ENC_B
 Wire Wire Line
 	3350 3900 4000 3900
 Wire Wire Line
@@ -1312,7 +1308,7 @@ Wire Wire Line
 Wire Wire Line
 	4200 4500 4200 4300
 Text GLabel 4000 3800 2    50   Input ~ 0
-MAX31865_RDY
+INT_MAX31865_RDY
 Wire Wire Line
 	4000 3800 3350 3800
 $Comp
@@ -1328,8 +1324,10 @@ F 3 "" H 7500 1850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7500 1850 7500 2000
-Text GLabel 4450 3100 2    50   BiDi ~ 0
-I2C_SDA
-Text GLabel 4450 3200 2    50   Output ~ 0
-I2C_SCL
+Text Notes 2200 4900 0    50   ~ 0
+D10 - PA11\nD11 - PB5\nD12 - PB4\n
+Text GLabel 4000 3700 2    50   Input ~ 0
+INT_PCA9555
+Wire Wire Line
+	4000 3700 3350 3700
 $EndSCHEMATC
