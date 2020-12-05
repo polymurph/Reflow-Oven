@@ -1345,17 +1345,6 @@ Wire Wire Line
 Text GLabel 1800 2050 0    50   Output ~ 0
 TIM1_CH1_PWM_Buzzer
 $Comp
-L Connector:Conn_01x02_Female J2
-U 1 1 60112791
-P 3900 6700
-F 0 "J2" H 3928 6676 50  0000 L CNN
-F 1 "Conn_ssr_2" H 3600 6750 50  0000 L CNN
-F 2 "Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal" H 3900 6700 50  0001 C CNN
-F 3 "~" H 3900 6700 50  0001 C CNN
-	1    3900 6700
-	1    0    0    1   
-$EndComp
-$Comp
 L Connector:Conn_01x02_Female J1
 U 1 1 60112FAF
 P 2200 6700
@@ -1363,6 +1352,10 @@ F 0 "J1" H 2228 6676 50  0000 L CNN
 F 1 "Conn_ssr_1" H 1900 6750 50  0000 L CNN
 F 2 "Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal" H 2200 6700 50  0001 C CNN
 F 3 "~" H 2200 6700 50  0001 C CNN
+F 4 "Phoenix Contact" H 2200 6700 50  0001 C CNN "Man"
+F 5 "1757242" H 2200 6700 50  0001 C CNN "Man no"
+F 6 "Digikey" H 2200 6700 50  0001 C CNN "Dist"
+F 7 " 277-1106-ND " H 2200 6700 50  0001 C CNN "Dist no"
 	1    2200 6700
 	1    0    0    1   
 $EndComp
@@ -2031,5 +2024,20 @@ F 6 "Digikey" H 10900 4500 50  0001 C CNN "Dist"
 F 7 "1276-6455-1-ND" H 10900 4500 50  0001 C CNN "Dist no"
 	1    10900 4500
 	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Female J?
+U 1 1 5FCC83B7
+P 3900 6700
+F 0 "J?" H 3928 6676 50  0000 L CNN
+F 1 "Conn_ssr_1" H 3600 6750 50  0000 L CNN
+F 2 "Connector_Phoenix_MC_HighVoltage:PhoenixContact_MC_1,5_2-G-5.08_1x02_P5.08mm_Horizontal" H 3900 6700 50  0001 C CNN
+F 3 "~" H 3900 6700 50  0001 C CNN
+F 4 "Phoenix Contact" H 3900 6700 50  0001 C CNN "Man"
+F 5 "1757242" H 3900 6700 50  0001 C CNN "Man no"
+F 6 "Digikey" H 3900 6700 50  0001 C CNN "Dist"
+F 7 " 277-1106-ND " H 3900 6700 50  0001 C CNN "Dist no"
+	1    3900 6700
+	1    0    0    1   
 $EndComp
 $EndSCHEMATC
