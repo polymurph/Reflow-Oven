@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:Reflow_Control-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -53,21 +52,6 @@ F 1 "SSD1306_128x64" H 8200 1300 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 8500 1600 50  0001 C CNN
 F 3 "" H 8500 1600 50  0001 C CNN
 	1    8500 1600
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Rotary_Encoder_Switch SW5
-U 1 1 5F6E216F
-P 10400 4350
-F 0 "SW5" H 10400 4717 50  0000 C CNN
-F 1 "Rotary_Encoder_Switch" H 10400 4626 50  0000 C CNN
-F 2 "Rotary_Encoder:RotaryEncoder_Alps_EC11E_Vertical_H20mm" H 10250 4510 50  0001 C CNN
-F 3 "~" H 10400 4610 50  0001 C CNN
-F 4 "Bourns" H 10400 4350 50  0001 C CNN "Man"
-F 5 "PEC12R-4220F-S0024" H 10400 4350 50  0001 C CNN "Man no"
-F 6 "Digikey" H 10400 4350 50  0001 C CNN "Dist"
-F 7 "PEC12R-4220F-S0024-ND" H 10400 4350 50  0001 C CNN "Dist no"
-	1    10400 4350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -497,19 +481,19 @@ Connection ~ 6950 4150
 Wire Wire Line
 	7650 4050 7650 4150
 Connection ~ 7650 4150
-Text GLabel 1100 4000 0    50   Output ~ 0
-BTN_UP
-Text GLabel 1100 4100 0    50   Output ~ 0
-BTN_DOWN
-Text GLabel 1100 4300 0    50   Output ~ 0
-BTN_LEFT
 Text GLabel 1100 4400 0    50   Output ~ 0
-BTN_CENTER
+BTN_UP
 Text GLabel 1100 4200 0    50   Output ~ 0
-BTN_RIGHT
-Text GLabel 1100 4500 0    50   Output ~ 0
-BTN_A
+BTN_DOWN
+Text GLabel 1100 4100 0    50   Output ~ 0
+BTN_LEFT
+Text GLabel 1100 4300 0    50   Output ~ 0
+BTN_CENTER
 Text GLabel 1100 4600 0    50   Output ~ 0
+BTN_RIGHT
+Text GLabel 1100 4000 0    50   Output ~ 0
+BTN_A
+Text GLabel 1100 4500 0    50   Output ~ 0
 BTN_B
 $Comp
 L power:GND #PWR029
@@ -533,9 +517,9 @@ Wire Wire Line
 Wire Wire Line
 	9700 4800 9700 4900
 Connection ~ 9700 4900
-Text GLabel 9250 4150 1    50   Output ~ 0
-INT_ENC_A
 Text GLabel 9700 4150 1    50   Output ~ 0
+INT_ENC_A
+Text GLabel 9250 4150 1    50   Output ~ 0
 INT_ENC_B
 Wire Wire Line
 	9250 4150 9250 4250
@@ -1093,7 +1077,7 @@ U 1 1 5FC579B9
 P 10350 2000
 F 0 "H5" H 10450 2046 50  0000 L CNN
 F 1 "MountingHole" H 10450 1955 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.5mm_Pad" H 10350 2000 50  0001 C CNN
+F 2 "owen:MountingHole_2.5mm_Pad" H 10350 2000 50  0001 C CNN
 F 3 "~" H 10350 2000 50  0001 C CNN
 	1    10350 2000
 	-1   0    0    1   
@@ -1104,7 +1088,7 @@ U 1 1 5FC57ED0
 P 10350 2200
 F 0 "H6" H 10450 2246 50  0000 L CNN
 F 1 "MountingHole" H 10450 2155 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.5mm_Pad" H 10350 2200 50  0001 C CNN
+F 2 "owen:MountingHole_2.5mm_Pad" H 10350 2200 50  0001 C CNN
 F 3 "~" H 10350 2200 50  0001 C CNN
 	1    10350 2200
 	-1   0    0    1   
@@ -1585,7 +1569,7 @@ U 1 1 603FB526
 P 6050 4200
 F 0 "C4" H 6141 4246 50  0000 L CNN
 F 1 "100uF" H 6141 4155 50  0000 L CNN
-F 2 "PCE3853CT-ND" H 6050 4200 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_5x5.4" H 6050 4200 50  0001 C CNN
 F 3 "~" H 6050 4200 50  0001 C CNN
 F 4 "Panasonic" H 6050 4200 50  0001 C CNN "Man"
 F 5 "EEE-0JA101WR" H 6050 4200 50  0001 C CNN "Man no"
@@ -2085,4 +2069,19 @@ Wire Wire Line
 	3750 700  3750 750 
 Wire Wire Line
 	3750 750  3850 750 
+$Comp
+L Device:Rotary_Encoder_Switch SW5
+U 1 1 5F6E216F
+P 10400 4350
+F 0 "SW5" H 10400 4717 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 10400 4626 50  0000 C CNN
+F 2 "owen:RotaryEncoder_Alps_EC11E_Vertical_H20mm" H 10250 4510 50  0001 C CNN
+F 3 "~" H 10400 4610 50  0001 C CNN
+F 4 "Bourns" H 10400 4350 50  0001 C CNN "Man"
+F 5 "PEC12R-4220F-S0024" H 10400 4350 50  0001 C CNN "Man no"
+F 6 "Digikey" H 10400 4350 50  0001 C CNN "Dist"
+F 7 "PEC12R-4220F-S0024-ND" H 10400 4350 50  0001 C CNN "Dist no"
+	1    10400 4350
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
