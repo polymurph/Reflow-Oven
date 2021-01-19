@@ -1,2 +1,2 @@
-# Reflow-Oven-Hardware
+# Reflow-Oven
 Reflow Oven Hardware KiCAD Projects
