@@ -10,5 +10,5 @@ ReflowOvenCtrl::ReflowOvenCtrl() :
 void ReflowOvenCtrl::process(Event ev)
 {
     // delegation of all requests
-    pState = pState->handle(entity, ev)
+    pState = pState->handle(entity, ev);
 }

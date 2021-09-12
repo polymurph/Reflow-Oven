@@ -19,7 +19,7 @@ struct ReflowOvenState
                                  Action pTransistionAction,
                                  ReflowOvenState* pNewState);
     void emptyAction() {};
-}
+};
 
 struct IdleState : public ReflowOvenState
 {
@@ -35,6 +35,22 @@ struct IdleState : public ReflowOvenState
     
     IdleState() {};
     static IdleState instance;
-}
+};
+
+struct HeatUpState : public ReflowOvenState
+{
+    static HeatUpState* getInstance();
+    virtual ReflowOvenState* andle(ReflowOven& entity,
+                                   ReflowOvenCtrl::Event ev);
+    protected:
+
+    virtual void entryAction(ReflowOven& entity);
+    virtual void exitAction(ReflowOven& entity);
+
+    private:
+    
+    HeatUpState() {};
+    static HeatUpState instance;
+};
 
 #endif // __REFLOWOVENSTATE_HPP__
