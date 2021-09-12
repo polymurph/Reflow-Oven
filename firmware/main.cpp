@@ -12,6 +12,7 @@ int main(void)
     oven.getTemperatureCelsius();
     oven.setFanDutycycle();
     
+    oven.turnOffFan();
 
 
 

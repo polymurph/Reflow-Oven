@@ -1,0 +1,40 @@
+#ifndef __REFLOWOVENSTATE_HPP__
+#define __REFLOWOVENSTATE_HPP__
+
+#include "reflowOven.hpp"
+#include "reflowOvenCtrl.hpp"
+
+struct ReflowOvenState
+{
+    static ReflowOvenState* init(ReflowOven& entity);
+
+    virtual ReflowOvenState* handle(ReflowOven& entity,
+                                    ReflowOvenCtrl::Event ev);
+    
+    protected:
+    virtual  void entryAction(ReflowOven& entity);
+    virtual void exitAction(ReflowOven& entity);
+    typedef void (ReflowOvenState::*Action)(ReflowOven& entity);
+    ReflowOvenState* changeState(ReflowOven& entity,
+                                 Action pTransistionAction,
+                                 ReflowOvenState* pNewState);
+    void emptyAction() {};
+}
+
+struct IdleState : public ReflowOvenState
+{
+    static IdleState* getInstance();
+    virtual ReflowOvenState* andle(ReflowOven& entity,
+                                   ReflowOvenCtrl::Event ev);
+    protected:
+
+    virtual void entryAction(ReflowOven& entity);
+    virtual void exitAction(ReflowOven& entity);
+
+    private:
+    
+    IdleState() {};
+    static IdleState instance;
+}
+
+#endif // __REFLOWOVENSTATE_HPP__
