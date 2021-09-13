@@ -12,20 +12,31 @@ struct ReflowOvenState
                                     ReflowOvenCtrl::Event ev);
     
     protected:
+
     virtual  void entryAction(ReflowOven& entity);
     virtual void exitAction(ReflowOven& entity);
     typedef void (ReflowOvenState::*Action)(ReflowOven& entity);
     ReflowOvenState* changeState(ReflowOven& entity,
                                  Action pTransistionAction,
                                  ReflowOvenState* pNewState);
+    //
+    // transistion actions
+    //
+
     void emptyAction() {};
+    void startReflowProcess();
+    void abortProcess();
 };
+
+//
+// reflow oven states
+//
 
 struct IdleState : public ReflowOvenState
 {
     static IdleState* getInstance();
-    virtual ReflowOvenState* andle(ReflowOven& entity,
-                                   ReflowOvenCtrl::Event ev);
+    virtual ReflowOvenState* handle(ReflowOven& entity,
+                                    ReflowOvenCtrl::Event ev);
     protected:
 
     virtual void entryAction(ReflowOven& entity);
@@ -40,8 +51,8 @@ struct IdleState : public ReflowOvenState
 struct HeatUpState : public ReflowOvenState
 {
     static HeatUpState* getInstance();
-    virtual ReflowOvenState* andle(ReflowOven& entity,
-                                   ReflowOvenCtrl::Event ev);
+    virtual ReflowOvenState* handle(ReflowOven& entity,
+                                    ReflowOvenCtrl::Event ev);
     protected:
 
     virtual void entryAction(ReflowOven& entity);

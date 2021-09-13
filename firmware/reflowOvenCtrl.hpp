@@ -8,7 +8,8 @@ class ReflowOvenState;
 struct ReflowOvenCtrl
 {
     enum Event{
-        evAbort
+        evAbort,
+        evStartReflowProcess
     };
 
     ReflowOvenCtrl();
