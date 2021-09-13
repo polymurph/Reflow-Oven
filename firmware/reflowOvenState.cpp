@@ -11,11 +11,11 @@ ReflowOvenState* ReflowOvenState::init(ReflowOven& entity)  // is static
 }
 
 ReflowOvenState* ReflowOvenState::changeState(ReflowOven& entity, 
-                                              Action pTransAction, 
+                                              Action pTransistionAction, 
                                               ReflowOvenState* pNewState)
 {
   exitAction(entity);              // polymorphic call of exit action
-  (this->*pTransAction)(entity);   // call of transition action
+  (this->*pTransistionAction)(entity);   // call of transition action
   pNewState->entryAction(entity);  // polymorphic call of entry action
   return pNewState;
 }
@@ -41,6 +41,11 @@ void ReflowOvenState::abortProcess()
 // idle state
 
 IdleState IdleState::instance;
+IdleState* IdleState::getInstance()
+{
+  return &instance;
+} 
+
 ReflowOvenState* IdleState::handle(ReflowOven& entity,
                                    ReflowOvenCtrl::Event ev)
 {
@@ -53,20 +58,26 @@ ReflowOvenState* IdleState::handle(ReflowOven& entity,
   return this;
 }
 
-void IdleState::entryAction()
+void IdleState::entryAction(ReflowOven& entity)
 {
   std::cout << "Entering idleState" << std::endl;
 }
 
-void IdleState::exitAction()
+void IdleState::exitAction(ReflowOven& entity)
 {
   std::cout << "Exiting from idleState" << std::endl;
 }
 
 // heatup state
 HeatUpState HeatUpState::instance;
-HeatUpState* HeatUpState::handle(ReflowOven& entity,
-                                 ReflowOvenCtrl::Event ev)
+
+HeatUpState* HeatUpState::getInstance()
+{
+  return &instance;
+}
+
+ReflowOvenState* HeatUpState::handle(ReflowOven& entity,
+                                     ReflowOvenCtrl::Event ev)
 {
   if(ev == ReflowOvenCtrl::Event::evAbort) {
       return changeState(entity,
@@ -76,12 +87,12 @@ HeatUpState* HeatUpState::handle(ReflowOven& entity,
   return this;
 }
 
-void HeatUpState::entryAction()
+void HeatUpState::entryAction(ReflowOven& entity)
 {
   std::cout << "Entering HeatUpState" << std::endl;
 }
 
-void HeatUpState::exitAction()
+void HeatUpState::exitAction(ReflowOven& entity)
 {
   std::cout << "Exiting from HeatUpState" << std::endl;
 }

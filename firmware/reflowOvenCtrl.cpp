@@ -2,7 +2,8 @@
 #include "reflowOvenState.hpp"
 
 ReflowOvenCtrl::ReflowOvenCtrl() :
-    entity(), pState(ReflowOvenState::init(entity))
+    entity(),
+    pState(ReflowOvenState::init(entity))
 {
 
 }

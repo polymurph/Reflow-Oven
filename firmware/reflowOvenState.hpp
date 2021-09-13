@@ -17,7 +17,7 @@ struct ReflowOvenState
     virtual void exitAction(ReflowOven& entity);
     typedef void (ReflowOvenState::*Action)(ReflowOven& entity);
     ReflowOvenState* changeState(ReflowOven& entity,
-                                 Action pTransistionAction,
+                                 Action,
                                  ReflowOvenState* pNewState);
     //
     // transistion actions
