@@ -47,13 +47,18 @@ void ReflowOvenState::startSoackProcess(ReflowOven& entity)
   std::cout << "entering soacking process..." << std::endl;
 }
 
+void ReflowOvenState::startRamp(ReflowOven& entity)
+{
+  std::cout << "entering ramp phase..." << std::endl;
+  entity.setHeaterDutycycle();
+}
+
 
 //
 // reflow oven states
 //
 
 // idle state
-
 IdleState IdleState::instance;
 IdleState* IdleState::getInstance()
 {
@@ -132,6 +137,10 @@ ReflowOvenState* SoackState::handle(ReflowOven& entity,
       return changeState(entity,
                          &SoackState::abortProcess,
                          IdleState::getInstance());
+  } else if (ev == ReflowOvenCtrl::Event::evSoackTimePassed) {
+      return changeState(entity,
+                         &SoackState::startRamp,
+                         RampState::getInstance());
   }
   return this;
 }
@@ -144,4 +153,33 @@ void SoackState::entryAction(ReflowOven& entity)
 void SoackState::exitAction(ReflowOven& entity)
 {
   std::cout << "Exiting from SoackState" << std::endl;
+}
+
+// ramp state
+RampState RampState::instance;
+
+RampState* RampState::getInstance()
+{
+  return &instance;
+}
+
+ReflowOvenState* RampState::handle(ReflowOven& entity,
+                                    ReflowOvenCtrl::Event ev)
+{
+  if(ev == ReflowOvenCtrl::Event::evAbort) {
+      return changeState(entity,
+                         &RampState::abortProcess,
+                         IdleState::getInstance());
+  }
+  return this;
+}
+
+void RampState::entryAction(ReflowOven& entity)
+{
+  std::cout << "Entering RampState" << std::endl;
+}
+
+void RampState::exitAction(ReflowOven& entity)
+{
+  std::cout << "Exiting from RampState" << std::endl;
 }

@@ -23,6 +23,7 @@ struct ReflowOvenState
     void startReflowProcess(ReflowOven& entity);
     void abortProcess(ReflowOven& entity);
     void startSoackProcess(ReflowOven& entity);
+    void startRamp(ReflowOven& entity);
 
     private:
 };
@@ -68,6 +69,19 @@ struct SoackState : public ReflowOvenState
     private:
     SoackState() {};
     static SoackState instance;
+};
+
+struct RampState : public ReflowOvenState
+{
+    static RampState* getInstance();
+    virtual ReflowOvenState* handle(ReflowOven& entity,
+                                    ReflowOvenCtrl::Event ev);
+    protected:
+    virtual void entryAction(ReflowOven& entity);
+    virtual void exitAction(ReflowOven& entity);
+    private:
+    RampState() {};
+    static RampState instance;
 };
 
 #endif // __REFLOWOVENSTATE_HPP__

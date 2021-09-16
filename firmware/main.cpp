@@ -27,6 +27,9 @@ int main(void)
             case 's':
                 reflowCtrl.process(ReflowOvenCtrl::Event::evTempReadyForSoack);
                 break;
+            case 'r':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evSoackTimePassed);
+                break;
             default:
                 break;
         }
@@ -43,6 +46,7 @@ char getCommand()
     std::cout << "    a   Abort" << std::endl;
     std::cout << "    h   heatup" << std::endl;
     std::cout << "    s   soack" << std::endl;
+    std::cout << "    r   ramp" << std::endl;
 
     std::cout << "    q   Quit" << std::endl;
 
