@@ -13,23 +13,25 @@ struct ReflowOvenState
     
     protected:
 
-    virtual  void entryAction(ReflowOven& entity);
+    virtual void entryAction(ReflowOven& entity);
     virtual void exitAction(ReflowOven& entity);
+
     typedef void (ReflowOvenState::*Action)(ReflowOven& entity);
+
     ReflowOvenState* changeState(ReflowOven& entity,
-                                 Action,
+                                 Action pTransistionAction,
                                  ReflowOvenState* pNewState);
     //
     // transistion actions
     //
 
-    void emptyAction() {};
-    void startReflowProcess();
-    void abortProcess();
+    void emptyAction(ReflowOven& entity) {};
+    void startReflowProcess(ReflowOven& entity);
+    void abortProcess(ReflowOven& entity);
 };
 
 //
-// reflow oven states
+// reflow oven states (singletons)
 //
 
 struct IdleState : public ReflowOvenState

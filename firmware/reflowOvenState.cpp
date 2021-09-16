@@ -5,6 +5,8 @@
 
 ReflowOvenState* ReflowOvenState::init(ReflowOven& entity)  // is static
 {
+  std::cout << "Reflow Oven FSM starting up..." << std::endl;
+  
   ReflowOvenState* initState = IdleState::getInstance();
   initState->entryAction(entity);      // executes entry action into init state
   return initState;
@@ -14,9 +16,9 @@ ReflowOvenState* ReflowOvenState::changeState(ReflowOven& entity,
                                               Action pTransistionAction, 
                                               ReflowOvenState* pNewState)
 {
-  exitAction(entity);              // polymorphic call of exit action
-  (this->*pTransistionAction)(entity);   // call of transition action
-  pNewState->entryAction(entity);  // polymorphic call of entry action
+  exitAction(entity);                     // polymorphic call of exit action
+  (this->*pTransistionAction)(entity);    // call of transition action
+  pNewState->entryAction(entity);         // polymorphic call of entry action
   return pNewState;
 }
 
@@ -24,12 +26,12 @@ ReflowOvenState* ReflowOvenState::changeState(ReflowOven& entity,
 // transistion actions
 //
 
-void ReflowOvenState::startReflowProcess()
+void ReflowOvenState::startReflowProcess(ReflowOven& entity)
 {
   std::cout << "starting reflow process..." << std::endl;
 }
 
-void ReflowOvenState::abortProcess()
+void ReflowOvenState::abortProcess(ReflowOven& entity)
 {
   std::cout << "aborting reflow process..." << std::endl;
 }
