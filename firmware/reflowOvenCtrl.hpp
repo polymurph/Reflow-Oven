@@ -12,7 +12,8 @@ struct ReflowOvenCtrl
         evStartReflowProcess,
         evTempReadyForSoack,
         evSoackTimePassed,
-        evPeakTempReached
+        evPeakTempReached,
+        evSafeTempReached
     };
 
     ReflowOvenCtrl();

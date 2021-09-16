@@ -25,6 +25,8 @@ struct ReflowOvenState
     void startSoackProcess(ReflowOven& entity);
     void startRamp(ReflowOven& entity);
     void coolDown(ReflowOven& entity);
+    void finishReflowProcess(ReflowOven& entity);
+
 
     private:
 };

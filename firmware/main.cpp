@@ -33,6 +33,9 @@ int main(void)
             case 'c':
                 reflowCtrl.process(ReflowOvenCtrl::Event::evPeakTempReached);
                 break;
+            case 'e':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evSafeTempReached);
+                break;
             default:
                 break;
         }
@@ -51,6 +54,7 @@ char getCommand()
     std::cout << "    s   soack" << std::endl;
     std::cout << "    r   ramp" << std::endl;
     std::cout << "    c   cooldown" << std::endl;
+    std::cout << "    e   safe temperature reached" << std::endl;
 
     std::cout << "    q   Quit" << std::endl;
 

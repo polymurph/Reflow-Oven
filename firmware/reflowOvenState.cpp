@@ -59,6 +59,14 @@ void ReflowOvenState::coolDown(ReflowOven& entity)
   entity.turnOffHeater(); 
 }
 
+void ReflowOvenState::finishReflowProcess(ReflowOven& entity)
+{
+  std::cout << "Reflow Process finished..." << std::endl;
+  entity.turnOffHeater();
+  entity.turnOffFan();
+  entity.turnOffRunningStatusLED();
+}
+
 
 //
 // reflow oven states
@@ -207,6 +215,10 @@ ReflowOvenState* CoolDownState::handle(ReflowOven& entity,
                                     ReflowOvenCtrl::Event ev)
 {
   if(ev == ReflowOvenCtrl::Event::evAbort) {
+      return changeState(entity,
+                         &CoolDownState::abortProcess,
+                         IdleState::getInstance());
+  } else if (ev == ReflowOvenCtrl::Event::evSafeTempReached) {
       return changeState(entity,
                          &CoolDownState::abortProcess,
                          IdleState::getInstance());
