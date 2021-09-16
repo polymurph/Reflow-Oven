@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <pthread.h>
 
 #include "reflowOven.hpp"
@@ -61,5 +62,6 @@ char getCommand()
     std::cout << std::endl << "Please press key: ";
     std::cin >> answer;
     std::cout << std::endl;
+    system("clear");
     return answer;
 }
