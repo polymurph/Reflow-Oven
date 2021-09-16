@@ -29,12 +29,24 @@ ReflowOvenState* ReflowOvenState::changeState(ReflowOven& entity,
 void ReflowOvenState::startReflowProcess(ReflowOven& entity)
 {
   std::cout << "starting reflow process..." << std::endl;
+  entity.turnOnRunningStatusLED();
+  entity.setFanDutycycle();
+  entity.setHeaterDutycycle();
 }
 
 void ReflowOvenState::abortProcess(ReflowOven& entity)
 {
   std::cout << "aborting reflow process..." << std::endl;
+  entity.turnOffHeater();
+  entity.turnOffFan();
+  entity.turnOffRunningStatusLED();
 }
+
+void ReflowOvenState::startSoackProcess(ReflowOven& entity)
+{
+  std::cout << "entering soacking process..." << std::endl;
+}
+
 
 //
 // reflow oven states
@@ -85,9 +97,14 @@ ReflowOvenState* HeatUpState::handle(ReflowOven& entity,
       return changeState(entity,
                          &HeatUpState::abortProcess,
                          IdleState::getInstance());
+  } else if (ev == ReflowOvenCtrl::Event::evTempReadyForSoack){
+      return changeState(entity,
+                         &HeatUpState::startSoackProcess,
+                         SoackState::getInstance());
   }
   return this;
 }
+
 
 void HeatUpState::entryAction(ReflowOven& entity)
 {
@@ -97,4 +114,34 @@ void HeatUpState::entryAction(ReflowOven& entity)
 void HeatUpState::exitAction(ReflowOven& entity)
 {
   std::cout << "Exiting from HeatUpState" << std::endl;
+}
+
+
+// soack state
+SoackState SoackState::instance;
+
+SoackState* SoackState::getInstance()
+{
+  return &instance;
+}
+
+ReflowOvenState* SoackState::handle(ReflowOven& entity,
+                                    ReflowOvenCtrl::Event ev)
+{
+  if(ev == ReflowOvenCtrl::Event::evAbort) {
+      return changeState(entity,
+                         &SoackState::abortProcess,
+                         IdleState::getInstance());
+  }
+  return this;
+}
+
+void SoackState::entryAction(ReflowOven& entity)
+{
+  std::cout << "Entering SoackState" << std::endl;
+}
+
+void SoackState::exitAction(ReflowOven& entity)
+{
+  std::cout << "Exiting from SoackState" << std::endl;
 }

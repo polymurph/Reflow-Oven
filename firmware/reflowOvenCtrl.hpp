@@ -9,7 +9,8 @@ struct ReflowOvenCtrl
 {
     enum Event{
         evAbort,
-        evStartReflowProcess
+        evStartReflowProcess,
+        evTempReadyForSoack
     };
 
     ReflowOvenCtrl();

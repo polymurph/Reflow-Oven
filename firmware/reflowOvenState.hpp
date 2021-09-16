@@ -22,6 +22,7 @@ struct ReflowOvenState
     void emptyAction(ReflowOven& entity) {};
     void startReflowProcess(ReflowOven& entity);
     void abortProcess(ReflowOven& entity);
+    void startSoackProcess(ReflowOven& entity);
 
     private:
 };
@@ -54,6 +55,19 @@ struct HeatUpState : public ReflowOvenState
     private:
     HeatUpState() {};
     static HeatUpState instance;
+};
+
+struct SoackState : public ReflowOvenState
+{
+    static SoackState* getInstance();
+    virtual ReflowOvenState* handle(ReflowOven& entity,
+                                    ReflowOvenCtrl::Event ev);
+    protected:
+    virtual void entryAction(ReflowOven& entity);
+    virtual void exitAction(ReflowOven& entity);
+    private:
+    SoackState() {};
+    static SoackState instance;
 };
 
 #endif // __REFLOWOVENSTATE_HPP__

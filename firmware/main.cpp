@@ -21,8 +21,11 @@ int main(void)
             case 'a':
                 reflowCtrl.process(ReflowOvenCtrl::Event::evAbort);
                 break;
-            case 's':
+            case 'h':
                 reflowCtrl.process(ReflowOvenCtrl::Event::evStartReflowProcess);
+                break;
+            case 's':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evTempReadyForSoack);
                 break;
             default:
                 break;
@@ -38,8 +41,8 @@ char getCommand()
     char answer;
     std::cout << std::endl << "-------------------------------------------" << std::endl;
     std::cout << "    a   Abort" << std::endl;
-    std::cout << "    s   Start Reflow Process" << std::endl;
-
+    std::cout << "    h   heatup" << std::endl;
+    std::cout << "    s   soack" << std::endl;
 
     std::cout << "    q   Quit" << std::endl;
 
