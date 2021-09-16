@@ -44,13 +44,19 @@ void ReflowOvenState::abortProcess(ReflowOven& entity)
 
 void ReflowOvenState::startSoackProcess(ReflowOven& entity)
 {
-  std::cout << "entering soacking process..." << std::endl;
+    std::cout << "entering soacking phase..." << std::endl;
 }
 
 void ReflowOvenState::startRamp(ReflowOven& entity)
 {
-  std::cout << "entering ramp phase..." << std::endl;
-  entity.setHeaterDutycycle();
+    std::cout << "entering ramp phase..." << std::endl;
+    entity.setHeaterDutycycle();
+}
+
+void ReflowOvenState::coolDown(ReflowOven& entity)
+{
+  std::cout  << "entering cooldown phase..." << std::endl;
+  entity.turnOffHeater(); 
 }
 
 
@@ -60,6 +66,7 @@ void ReflowOvenState::startRamp(ReflowOven& entity)
 
 // idle state
 IdleState IdleState::instance;
+
 IdleState* IdleState::getInstance()
 {
   return &instance;
@@ -170,6 +177,10 @@ ReflowOvenState* RampState::handle(ReflowOven& entity,
       return changeState(entity,
                          &RampState::abortProcess,
                          IdleState::getInstance());
+  } else if(ev == ReflowOvenCtrl::Event::evPeakTempReached) {
+      return changeState(entity,
+                         &RampState::coolDown,
+                         CoolDownState::getInstance());
   }
   return this;
 }
@@ -182,4 +193,33 @@ void RampState::entryAction(ReflowOven& entity)
 void RampState::exitAction(ReflowOven& entity)
 {
   std::cout << "Exiting from RampState" << std::endl;
+}
+
+// cooldown state
+CoolDownState CoolDownState::instance;
+
+CoolDownState* CoolDownState::getInstance()
+{
+  return &instance;
+}
+
+ReflowOvenState* CoolDownState::handle(ReflowOven& entity,
+                                    ReflowOvenCtrl::Event ev)
+{
+  if(ev == ReflowOvenCtrl::Event::evAbort) {
+      return changeState(entity,
+                         &CoolDownState::abortProcess,
+                         IdleState::getInstance());
+  }
+  return this;
+}
+
+void CoolDownState::entryAction(ReflowOven& entity)
+{
+  std::cout << "Entering CoolDownState" << std::endl;
+}
+
+void CoolDownState::exitAction(ReflowOven& entity)
+{
+  std::cout << "Exiting from CoolDownState" << std::endl;
 }
