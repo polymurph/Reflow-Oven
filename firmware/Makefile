@@ -11,7 +11,7 @@ cpp_obj = $(cpp_src:.cpp=.o)
 c_obj = $(c_src:.c=.o)
 CC = g++ 
 CFLAGS = -Wall -pedantic -li2c
-LDFLAGS = 
+LDFLAGS = -lpthread
 EXEC = runtest
 
 

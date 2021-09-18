@@ -1,11 +1,57 @@
 #include <iostream>
 #include <stdlib.h>
+
+#include <unistd.h>
 #include <pthread.h>
 
 #include "reflowOven.hpp"
 #include "reflowOvenCtrl.hpp"
 
+pthread_t uI_th, fsm_th;
+
+
 char getCommand();
+
+void* userInterfaceTask(void* arg)
+{
+    char cmd;
+    do{
+        usleep(100000);
+        cmd = getCommand();
+
+        switch(cmd)
+        {
+            case 'a':
+                //reflowCtrl.process(ReflowOvenCtrl::Event::evAbort);
+                break;
+            case 'h':
+                //reflowCtrl.process(ReflowOvenCtrl::Event::evStartReflowProcess);
+                break;
+            case 's':
+                //reflowCtrl.process(ReflowOvenCtrl::Event::evTempReadyForSoack);
+                break;
+            case 'r':
+                //reflowCtrl.process(ReflowOvenCtrl::Event::evSoackTimePassed);
+                break;
+            case 'c':
+                //reflowCtrl.process(ReflowOvenCtrl::Event::evPeakTempReached);
+                break;
+            case 'e':
+                //reflowCtrl.process(ReflowOvenCtrl::Event::evSafeTempReached);
+                break;
+            default:
+                break;
+        }
+
+    }while(cmd != 'q');
+
+}
+
+void* finiteStateMachineTask(void* arg)
+{
+
+}
+
 
 int main(void)
 {
@@ -14,6 +60,15 @@ int main(void)
 
     ReflowOvenCtrl reflowCtrl;
 
+    std::cout << "User Interface Started" << std::endl;
+    pthread_create(&uI_th, NULL, userInterfaceTask, NULL);
+    //pthread_create(&fsm_th, NULL, finiteStateMachineTask, static_cast<void*>(&reflowCtrl));
+
+
+    pthread_join( uI_th, NULL);
+    //pthread_join( fsm_th, NULL);
+
+    return 0;
 
     do{
         cmd = getCommand();
@@ -42,6 +97,8 @@ int main(void)
         }
 
     }while(cmd != 'q');
+
+
 
     return 0;
 }
