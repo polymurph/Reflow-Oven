@@ -60,6 +60,47 @@ int main(void)
 
     ReflowOvenCtrl reflowCtrl;
 
+    do{
+        cmd = getCommand();
+        switch(cmd)
+        {
+            case 'a':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evAbort);
+                break;
+            case 'h':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evStartReflowProcess);
+                break;
+            case 's':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evTempReadyForSoack);
+                break;
+            case 'r':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evSoackTimePassed);
+                break;
+            case 'c':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evPeakTempReached);
+                break;
+            case 'e':
+                reflowCtrl.process(ReflowOvenCtrl::Event::evSafeTempReached);
+                break;
+            default:
+                break;
+        }
+
+    }while(cmd != 'q');
+
+
+
+    return 0;
+}
+
+#ifdef Treads
+int main(void)
+{
+    char cmd;
+    std::cout << "Reflow Controll Firmware" << std::endl;
+
+    ReflowOvenCtrl reflowCtrl;
+
     std::cout << "User Interface Started" << std::endl;
     pthread_create(&uI_th, NULL, userInterfaceTask, NULL);
     //pthread_create(&fsm_th, NULL, finiteStateMachineTask, static_cast<void*>(&reflowCtrl));
@@ -102,6 +143,7 @@ int main(void)
 
     return 0;
 }
+#endif // Threads
 
 char getCommand()
 {
