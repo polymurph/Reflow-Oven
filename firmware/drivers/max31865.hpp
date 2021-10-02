@@ -75,17 +75,38 @@ class MAX31865
         };
 
         union RTD_Resistance_REG {
+            struct MSB_8BIT {
+                typedef BitField<uint16_t, 15, 8> Bits;
+            };
+            struct LSB_8BIT {
+                typedef BitField<uint16_t, 7, 8> Bits;
+            };
             struct RTD_MSB {
                 typedef BitField<uint16_t, 15, 8> Bits;
             };
             struct RTD_LSB {
-                
-            }
+                typedef BitField<uint16_t, 7, 7> Bits;  
+            };
+            struct RTD {
+                typedef BitField<uint16_t, 15, 15> Bits;
+            };
+            struct FAULT {
+                typedef BitField<uint16_t, 0, 1> Bits;
+            };
+
+            union {
+                RTD_Resistance_REG::MSB_8BIT::Bits MSB_8BIT;
+                RTD_Resistance_REG::LSB_8BIT::Bits LSB_8BIT;
+                RTD_Resistance_REG::RTD_MSB::Bits RTD_MSB;
+                RTD_Resistance_REG::RTD::Bits RTD;
+                RTD_Resistance_REG::FAULT::Bits FAULT;
+            }bits;
+
+            uint16_t raw;
+            RTD_Resistance_REG(uint16_t v = 0) : raw(v) {};
+            operator uint16_t() {return raw;}
+            void operator = (uint16_t v) {raw = v;}
         };
-
-        union RTD_LSBS_REG {
-
-        }
 
         SPI_CH& spi;
         fptr_t charged_time_delay;
@@ -97,10 +118,8 @@ class MAX31865
         uint16_t lowFaultThreshold;
         uint16_t highFaultThreshold;
 
-        Cofiguration_REG;
-
-
-        
+        Cofiguration_REG config_reg;
+        RTD_Resistance_REG rtd_reg;
 };
 
 #endif // __MAX31865_HPP__
