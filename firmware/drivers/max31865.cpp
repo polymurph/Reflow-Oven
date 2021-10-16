@@ -1,3 +1,5 @@
+#include "max31865.hpp"
+
 MAX31865::MAX31865( SPI_CH& spi,
                     fptr_t charged_time_delay,
                     fptr_t conversion_timer_deay,
@@ -9,6 +11,7 @@ MAX31865::MAX31865( SPI_CH& spi,
                     uint16_t highFaultThreshold,
                     bool wire_3,
                     bool filter_50Hz) : 
+                        config_reg(),
                         spi(spi),
                         charged_time_delay(charged_time_delay),
                         conversion_timer_deay(conversion_timer_deay),
@@ -17,10 +20,7 @@ MAX31865::MAX31865( SPI_CH& spi,
                         rtd(rtd),
                         rref(rref),
                         lowFaultThreshold(lowFaultThreshold),
-                        highFaultThreshold(highFaultThreshold),
-                        wire_3(wire_3),
-                        filter_50Hz(filter_50Hz),
-                        Cofiguration_REG()
+                        highFaultThreshold(highFaultThreshold)
 {}
 
 void MAX31865::init()
