@@ -31,8 +31,10 @@ int main(void)
 	do{
 		std::system("clear");
 		std::cout << buf[0] << "\n" << buf[1] << "\n" << buf[2] << std::endl;
+		std::system("stty raw");
 		input = std::getchar();
-		std::cout << input << std::endl;
+		std::system("stty cooked");
+		//std::cout << input << std::endl;
 		if(input == 'd') {
 			buf[index][0] = ' ';
 			if(index < index_lim) {
@@ -56,7 +58,7 @@ int main(void)
 
 	} while(input != 'q');
 	
-	
+	std::system("clear");	
 	return 0;
 }
 
