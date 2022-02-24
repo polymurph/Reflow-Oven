@@ -1,6 +1,9 @@
 #include <iostream>
 #include <pthread.h>
+#include <mqueue.h>
+#include <semaphore.h>
 
+//https://www.youtube.com/watch?v=YSn8_XdGH7c&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=21
 
 void* thread_main(void *ptr)
 {
@@ -17,9 +20,11 @@ void* thread_temp_controll(void *ptr)
 int main(void)
 {
 
+	sem_t semapore;
 	pthread_t th_temp_controll;
 	pthread_t th_main;
 
+	sem_init(&semaphore, 0, 1);
 	pthread_create(&th_main,
 				   NULL,
 				   thread_main,
@@ -30,6 +35,7 @@ int main(void)
 				   thread_temp_controll,
 				   NULL);
 
+	sem_destroy(&emaphore
 
 	pthread_join(th_temp_controll, NULL);
 	pthread_join(th_main, NULL);
